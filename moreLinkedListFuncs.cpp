@@ -178,17 +178,17 @@ int largestValue(LinkedList *list) {
   assert(list->head != NULL);
 
   Node *p = list->head;
-  int max = list->head->data;
+  int largest = list->head->data;
   while (p != NULL) {
-    if (p->data > max)
-      max = p->data;
+    if (p->data > largest)
+      largest = p->data;
     p = p->next;
   }
 
   // TODO: Insert code here to calculate and return
   //   largest value in list (which may not be unique).
 
-  return max; // STUB!  Replace this line with correct code
+  return largest; // STUB!  Replace this line with correct code
 
 }
 
@@ -205,17 +205,17 @@ int smallestValue(LinkedList *list) {
   assert(list->head != NULL);
 
   Node *p = list->head;
-  int min = list->head->data;
+  int smallest = list->head->data;
   while (p != NULL) {
-    if (p->data < min)
-      min = p->data;
+    if (p->data < smallest)
+      smallest = p->data;
     p = p->next;
   }
 
   // TODO: Insert code here to calculate and return
   //   smallest value in list (which may not be unique).
 
-  return min; // STUB!  Replace this line with correct code
+  return smallest; // STUB!  Replace this line with correct code
 
 }
 
@@ -230,23 +230,21 @@ int sum(LinkedList * list) {
   //  so does not need to do error checking for these conditions.
 
   assert(list!=NULL);
+  
+  int sum = 0;
 
   if (list->head == NULL)
-    return 0;
+  {
 
-  Node *p = list->head;
-  int mySum;
-  while (p != NULL) {
-    mySum += p->data;
-    p = p->next;
+    return sum;
+
+  } else {
+    for (Node *p = list->head; p!= NULL; p = p->next)
+    {
+      sum += p->data;
+    }
   }
 
-  return mySum;
-
-  // TODO: Insert code here to calculate and return
-  //   sum of all values in list (0 if there are none).
-
-  // STUB!  Replace this line with correct code
-
+  return sum;
 }
 
